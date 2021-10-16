@@ -17,17 +17,3 @@ p {
 .list {
   list-style: none;
 }
-
-.title {
-  text-align: center;
-
-  color: #fff;
-}
-
-h1 {
-  font-size: 30px;
-}
-
-h2 {
-  font-size: 25px;
-}

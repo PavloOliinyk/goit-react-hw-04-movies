@@ -1,11 +1,29 @@
-import React from 'react';
-
-import Container from './Container';
+import { Switch, Route } from 'react-router-dom';
+import Header from './components/Header';
+import Navigation from './components/Navigation';
+import HomePage from './views/HomePage';
+import MoviesPage from './views/MoviesPage';
+import Container from './components/Container';
 
 function App() {
   return (
     <Container>
-      <h1>Movies</h1>
+      <Header>
+        <Navigation />
+      </Header>
+      <Switch>
+        <Route path="/" exact>
+          <HomePage />
+        </Route>
+
+        <Route path="/movies">
+          <MoviesPage />
+        </Route>
+
+        {/* <Route>
+          <NotFoundView />
+        </Route> */}
+      </Switch>
     </Container>
   );
 }
