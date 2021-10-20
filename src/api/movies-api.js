@@ -27,12 +27,11 @@ export const getMovieDetails = async (movieId = null) => {
   return response.ok ? movie : Promise.reject(new Error('Not found'));
 };
 
-export const getMovieCredits = async (movieId = null) => {
+export const getMovieCredits = async movieId => {
   const url = `${BASE_URL}movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`;
-
   const response = await fetch(url);
-  const { results } = await response.json();
-  return response.ok ? results : Promise.reject(new Error('Not found'));
+  const { cast } = await response.json();
+  return response.ok ? cast : Promise.reject(new Error('Not found'));
 };
 
 export const getMovieReviews = async (movieId = null, currentPage = 1) => {

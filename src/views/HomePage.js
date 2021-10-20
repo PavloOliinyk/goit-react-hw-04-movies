@@ -3,7 +3,7 @@ import { getTrendingMovies } from '../api/movies-api';
 import MovieList from '../components/MovieList';
 
 export default function HomePage() {
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState(null);
 
   useEffect(() => {
     const fetchTrendingMovies = async () => {
