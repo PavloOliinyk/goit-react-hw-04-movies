@@ -1,9 +1,11 @@
 import { Switch, Route } from 'react-router-dom';
+
 import Header from './components/Header';
 import Navigation from './components/Navigation';
+import Container from './components/Container';
 import HomePage from './views/HomePage';
 import MoviesPage from './views/MoviesPage';
-import Container from './components/Container';
+import MovieDetailsPage from './views/MovieDetailsPage';
 
 function App() {
   return (
@@ -16,8 +18,12 @@ function App() {
           <HomePage />
         </Route>
 
-        <Route path="/movies">
+        <Route path="/movies" exact>
           <MoviesPage />
+        </Route>
+
+        <Route path="/movies/:movieId">
+          <MovieDetailsPage />
         </Route>
 
         {/* <Route>

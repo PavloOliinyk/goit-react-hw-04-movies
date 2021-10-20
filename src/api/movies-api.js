@@ -23,8 +23,8 @@ export const getMovieDetails = async (movieId = null) => {
   const url = `${BASE_URL}movie/${movieId}?&api_key=${API_KEY}&language=en-US`;
 
   const response = await fetch(url);
-  const { results } = await response.json();
-  return response.ok ? results : Promise.reject(new Error('Not found'));
+  const movie = await response.json();
+  return response.ok ? movie : Promise.reject(new Error('Not found'));
 };
 
 export const getMovieCredits = async (movieId = null) => {

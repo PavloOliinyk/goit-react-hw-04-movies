@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { getMoviesByKeyWord } from '../api/movies-api';
+import Form from '../components/Form';
+import MovieList from '../components/MovieList';
 
 export default function MoviesPage() {
-  const [value, setValue] = useState('');
   const [query, setQuery] = useState('');
   const [movies, setMovies] = useState([]);
 
@@ -31,40 +32,13 @@ export default function MoviesPage() {
     fetchMovies();
   }, [query]);
 
-  const handleChahge = e => {
-    const { value } = e.target;
-
-    setValue(value.toLowerCase());
-  };
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    setQuery(value);
-  };
+  const handleSubmit = value => setQuery(value);
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <input
-          // className={s.SearchFormInput}
-          type="text"
-          autoComplete="off"
-          name="query"
-          autoFocus
-          value={value}
-          // placeholder="Search images and photos"
-          onChange={handleChahge}
-        />
-        <button type="submit">Search movies</button>
-      </form>
+      <Form handleSubmit={handleSubmit} />
 
-      {movies && (
-        <ul>
-          {movies.map(movie => (
-            <li key={movie.id}>{movie.title}</li>
-          ))}
-        </ul>
-      )}
+      {movies && <MovieList movies={movies} />}
     </>
   );
 }

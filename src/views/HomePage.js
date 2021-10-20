@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getTrendingMovies } from '../api/movies-api';
+import MovieList from '../components/MovieList';
 
 export default function HomePage() {
   const [movies, setMovies] = useState([]);
@@ -17,13 +18,7 @@ export default function HomePage() {
     <>
       <h1>Trending movies</h1>
 
-      {movies && (
-        <ul>
-          {movies.map(movie => (
-            <li key={movie.id}>{movie.title}</li>
-          ))}
-        </ul>
-      )}
+      {movies && <MovieList movies={movies} />}
     </>
   );
 }
