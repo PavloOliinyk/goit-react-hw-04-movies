@@ -57,7 +57,7 @@ export default function MovieDetailsPage() {
             <Cast movieId={movie.id} />
           </Route>
           <Route path={`${url}/reviews`}>
-            <Reviews />
+            <Reviews movieId={movie.id} />
           </Route>
         </div>
       )}
