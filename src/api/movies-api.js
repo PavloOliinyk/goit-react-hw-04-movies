@@ -11,7 +11,7 @@ export const getTrendingMovies = async (currentPage = 1) => {
 };
 
 // ==========  By Keyword  ==========
-export const getMoviesByKeyWord = async (query = '', currentPage = 1) => {
+export const getMoviesByKeyWord = async (query, currentPage = 1) => {
   const url = `${BASE_URL}search/movie?api_key=${API_KEY}&query=${query}&language=en-US&page=${currentPage}&include_adult=false`;
 
   const response = await fetch(url);

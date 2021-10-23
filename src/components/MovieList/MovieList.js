@@ -6,9 +6,9 @@ export default function MovieList({ movies }) {
   // console.log(url);
 
   return (
-    <ul>
+    <ul style={{ marginTop: '20px' }}>
       {movies.map(movie => (
-        <li key={movie.id}>
+        <li key={movie.id} style={{ marginBottom: '5px' }}>
           <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
         </li>
       ))}

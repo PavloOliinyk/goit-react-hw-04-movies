@@ -1,0 +1,11 @@
+.Wrapper {
+  display: flex;
+}
+
+.Image {
+  width: 300px;
+}
+
+.Description {
+  margin-left: 20px;
+}
